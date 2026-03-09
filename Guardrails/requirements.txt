@@ -1,0 +1,7 @@
+
+langchain
+langchain-groq
+langchain_openai
+python-dotenv
+ipykernel
+jupyter
