@@ -13,6 +13,7 @@ This workspace contains three independent learning projects:
 | **Guardrails** | LangChain + Groq AI | Building AI applications with safety guardrails |
 | **MCP_demo** | Model Context Protocol + FastMCP | Creating intelligent MCP servers and clients |
 | **WebsocketsDemo** | FastAPI + WebSockets | Real-time bidirectional communication |
+| **WebhooksDemo** | FastAPI + HTTP Callbacks | Event-driven webhooks and integrations |
 
 ---
 
@@ -43,6 +44,12 @@ Guardrails-websockets-mcp-webhooks/
 │   │   ├── index.html      # Chat UI
 │   │   └── admin.html      # Admin dashboard
 │   └── README.md            # Project-specific docs
+├── WebhooksDemo/            # Webhook event system
+│   ├── main.py             # Webhook server
+│   ├── client.py           # Webhook client example
+│   ├── requirements.txt     # Dependencies
+│   └── README.md            # Project-specific docs
+│
 │
 └── README.md                # This file
 ```
@@ -57,6 +64,8 @@ Guardrails-websockets-mcp-webhooks/
 - Virtual environment (venv, conda, or uv venv)
 
 ### Setup
+
+---
 
 1. **Navigate to the workspace:**
    ```bash
@@ -164,7 +173,72 @@ uvicorn main:app --reload
 # http://localhost:8000
 ```
 
-**Features:**
+**F
+
+### � WebSockets vs Webhooks at a Glance
+
+| Feature | WebSockets | Webhooks |
+|---------|-----------|----------|
+| Connection | Persistent TCP | HTTP POST requests |
+| Direction | Bidirectional | One-way (server → client) |
+| Real-time | ✅ Instant (<100ms) | ✅ Fast (~500ms) |
+| Firewall | ❌ Needs special ports | ✅ Standard HTTP |
+| Use Case | Chat, dashboards, games | Events, notifications, integrations |
+| Scalability | Many connections needed | More scalable |
+| Client Availability | Must be online | Can handle offline |
+
+**When to Use Each:**
+- **WebSockets**: Real-time interactive chat, live dashboards, multiplayer games
+- **Webhooks**: GitHub→Deploy, Payment→Notify, Form→Workflow, Monitoring→Alert
+
+For a detailed comparison, see [WebhooksDemo/README.md](WebhooksDemo/README.md).
+
+---
+
+## �4️⃣ **WebhooksDemo** - Event-Driven HTTP Callbacks
+
+**What you'll learn:**
+- Webhook registration and management
+- Event-driven architecture patterns
+- HTTP callback systems
+- Decoupled service communication
+- Comparing webhooks vs WebSockets
+- Real-world webhook implementations
+
+**Key Technologies:**
+- `fastapi` - Web framework
+- `uvicorn` - ASGI server
+- `httpx` - Async HTTP client
+- HTTP POST callbacks
+
+**How to use:**
+```bash
+cd WebhooksDemo
+
+# Terminal 1: Run webhook server
+python main.py
+
+# Terminal 2: Run webhook client
+python client.py
+
+# Terminal 3: Test the system
+curl -X POST http://localhost:8000/test-event
+```WebhooksDemo** - Learn event-driven architecture
+3. Move to **Guardrails** - Learn AI integration basics
+4. Advance to **MCP_demo** - Understand tool-driven architecture
+
+**Intermediate/Advanced:**
+- Combine concepts: Build a real-time chat with AI (Guardrails + WebsocketsDemo)
+- Extend MCP tools: Add custom servers to MCP_demo
+- Integrate webhooks: Send WebSocket events via webhooksooks
+- Perfect for integrations, notifications, and decoupled systems
+
+**Key Differences from WebSockets:**
+- **Webhooks:** One-way (server → client), HTTP-based, firewall-friendly
+- **WebSockets:** Bidirectional, persistent connection, real-time
+- See [WebhooksDemo/README.md](WebhooksDemo/README.md) for detailed comparison
+
+---eatures:**
 - 🔄 Real-time bidirectional communication
 - 👥 Online users list
 - ✍️ Typing indicators
@@ -173,10 +247,20 @@ uvicorn main:app --reload
 - 📊 Activity logging and user statistics
 
 ---
+Webhooks + WebSockets**
+   - WebSocket chat broadcasts events
+   - Webhooks notify external services
+   - Example: Chat message → trigger webhook → external logging
 
-## 🛠️ Installation & Environment Setup
+4. **Activity Analytics**
+   - WebSocket activity → WebhooksDemo webhooks → analytics service
+   - Use Guardrails to generate insights
+   - Expose data via MCP tools
 
-### Using `uv` (Recommended - Faster)
+5. **Event-Driven System**
+   - WebhooksDemo receives integrations (GitHub, payment systems)
+   - WebSockets broadcast events in real-time
+   - Guardrails processes events safelyFaster)
 
 ```bash
 # Go to any project folder
@@ -194,6 +278,12 @@ uv add -r requirements.txt
 # Go to any project folder
 cd Guardrails
 
+
+### Webhooks
+- **HTTP Callbacks**: Server sends POST requests to registered endpoints
+- **Event-driven**: Server triggers HTTP calls on events
+- **Decoupled**: Services don't need direct connection
+- **Scalable**: No persistent connections needed
 # Create virtual environment
 python -m venv .venv
 
