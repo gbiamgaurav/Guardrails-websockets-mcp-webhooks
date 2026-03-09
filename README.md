@@ -4,6 +4,27 @@ A collection of three practical projects demonstrating modern Python web technol
 
 ---
 
+## ⚡ Technology Comparison at a Glance
+
+### WebSockets vs Webhooks
+
+| Aspect | WebSockets | Webhooks |
+|--------|-----------|----------|
+| **Connection** | Persistent TCP | HTTP POST requests |
+| **Communication** | Bidirectional (↔️) | One-way (→) |
+| **Latency** | Ultra-fast (<100ms) | Fast (~500ms) |
+| **Server Resources** | Many persistent connections | Stateless, more scalable |
+| **Firewall** | ❌ Requires port config | ✅ Standard HTTP (80/443) |
+| **Client Online** | Must be connected | Can be offline initially |
+| **Best For** | Real-time chat, dashboards, games | Events, notifications, integrations |
+| **Setup Complexity** | Medium | Simple |
+
+### Quick Decision Guide
+- **Choose WebSockets if:** You need instant bidirectional updates, real-time interaction required
+- **Choose Webhooks if:** Services are decoupled, firewall-friendly needed, clients can process events asynchronously
+
+---
+
 ## 📚 Project Overview
 
 This workspace contains three independent learning projects:
