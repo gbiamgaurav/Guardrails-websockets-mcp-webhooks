@@ -194,29 +194,17 @@ uvicorn main:app --reload
 # http://localhost:8000
 ```
 
-**F
-
-### � WebSockets vs Webhooks at a Glance
-
-| Feature | WebSockets | Webhooks |
-|---------|-----------|----------|
-| Connection | Persistent TCP | HTTP POST requests |
-| Direction | Bidirectional | One-way (server → client) |
-| Real-time | ✅ Instant (<100ms) | ✅ Fast (~500ms) |
-| Firewall | ❌ Needs special ports | ✅ Standard HTTP |
-| Use Case | Chat, dashboards, games | Events, notifications, integrations |
-| Scalability | Many connections needed | More scalable |
-| Client Availability | Must be online | Can handle offline |
-
-**When to Use Each:**
-- **WebSockets**: Real-time interactive chat, live dashboards, multiplayer games
-- **Webhooks**: GitHub→Deploy, Payment→Notify, Form→Workflow, Monitoring→Alert
-
-For a detailed comparison, see [WebhooksDemo/README.md](WebhooksDemo/README.md).
+**Features:**
+- 🔄 Real-time bidirectional communication
+- 👥 Online users list
+- ✍️ Typing indicators
+- 💬 Private messaging
+- 📱 Mobile-friendly responsive UI
+- 📊 Activity logging and user statistics
 
 ---
 
-## �4️⃣ **WebhooksDemo** - Event-Driven HTTP Callbacks
+### 4️⃣ **WebhooksDemo** - Event-Driven HTTP Callbacks
 
 **What you'll learn:**
 - Webhook registration and management
@@ -244,44 +232,13 @@ python client.py
 
 # Terminal 3: Test the system
 curl -X POST http://localhost:8000/test-event
-```WebhooksDemo** - Learn event-driven architecture
-3. Move to **Guardrails** - Learn AI integration basics
-4. Advance to **MCP_demo** - Understand tool-driven architecture
-
-**Intermediate/Advanced:**
-- Combine concepts: Build a real-time chat with AI (Guardrails + WebsocketsDemo)
-- Extend MCP tools: Add custom servers to MCP_demo
-- Integrate webhooks: Send WebSocket events via webhooksooks
-- Perfect for integrations, notifications, and decoupled systems
-
-**Key Differences from WebSockets:**
-- **Webhooks:** One-way (server → client), HTTP-based, firewall-friendly
-- **WebSockets:** Bidirectional, persistent connection, real-time
-- See [WebhooksDemo/README.md](WebhooksDemo/README.md) for detailed comparison
-
----eatures:**
-- 🔄 Real-time bidirectional communication
-- 👥 Online users list
-- ✍️ Typing indicators
-- 💬 Private messaging
-- 📱 Mobile-friendly responsive UI
-- 📊 Activity logging and user statistics
+```
 
 ---
-Webhooks + WebSockets**
-   - WebSocket chat broadcasts events
-   - Webhooks notify external services
-   - Example: Chat message → trigger webhook → external logging
 
-4. **Activity Analytics**
-   - WebSocket activity → WebhooksDemo webhooks → analytics service
-   - Use Guardrails to generate insights
-   - Expose data via MCP tools
+## 💾 Installation & Setup
 
-5. **Event-Driven System**
-   - WebhooksDemo receives integrations (GitHub, payment systems)
-   - WebSockets broadcast events in real-time
-   - Guardrails processes events safelyFaster)
+### Using `uv` (Recommended - Faster)
 
 ```bash
 # Go to any project folder
@@ -297,14 +254,8 @@ uv add -r requirements.txt
 
 ```bash
 # Go to any project folder
-cd Guardrails
+cd Guardrails  # or MCP_demo or WebsocketsDemo
 
-
-### Webhooks
-- **HTTP Callbacks**: Server sends POST requests to registered endpoints
-- **Event-driven**: Server triggers HTTP calls on events
-- **Decoupled**: Services don't need direct connection
-- **Scalable**: No persistent connections needed
 # Create virtual environment
 python -m venv .venv
 
@@ -320,11 +271,12 @@ pip install -r requirements.txt
 ### Using `conda`
 
 ```bash
-cd Guardrails
+# Go to any project folder
+cd Guardrails  # or MCP_demo or WebsocketsDemo
 
-conda create --name guardrails python=3.10
-conda activate guardrails
-conda install --file requirements.txt
+conda create --name my-env python=3.10
+conda activate my-env
+pip install -r requirements.txt
 ```
 
 ---
